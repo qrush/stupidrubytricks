@@ -1,0 +1,8 @@
+{ 
+  "name": "stupid ruby tricks",
+  "sections": [
+    {"section":"start"},
+    {"section":"tricks"},
+    {"section":"end"}
+  ]
+}
