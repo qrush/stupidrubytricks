@@ -147,14 +147,6 @@
 	# "*" * 80
 	********************************************************************************
 
-!SLIDE
-
-## `begin/rescue/else/end`
-
-!SLIDE
-
-## `throw/catch`
-
 !SLIDE commandline incremental
 
 ## `DATA` and `__END__`
@@ -189,113 +181,108 @@
 
 !SLIDE
 
-## splat arguments, anywhere (1.9+)
-
-!SLIDE
-
-## destructuring arrays
-
-!SLIDE
-
 ## pulling elements out of arrays
 
-!SLIDE
+	# args = [1, 2, 3]
+	# first, *rest = args
+	# first
+	1
 
-## `Enumerable#any? / #all?`
+	# rest
+	[2, 3]
 
-!SLIDE
-
-## `Hash#fetch`
-
-!SLIDE
-
-## `Hash#new` with a block
-
-!SLIDE
-
-## `Hash::[]`
-
-!SLIDE
-
-## `Array#sort_by`
-
-!SLIDE
-
-## `String#present?` (Rails only)
-
-!SLIDE
-
-## `j` and `jj` (1.9+)
-
-    require 'json'
-    h = {a:1,b:2}
-    j(h); jj(h)
-*
-
-!SLIDE
-
-## `begin/rescue/else/end`
-
-!SLIDE
-
-## `throw/catch`
-
-!SLIDE
-
-## `DATA` and `__END__`
-
-!SLIDE
-
-## `redo`
-
-    >> s = ''
-    => ""
-    >> 1.upto(5) { |i| s << i.to_s; redo if s.size < 3 }
-    => 1
-    >> s
-    => "1112345"
-
-!SLIDE
+!SLIDE commandline incremental
 
 ## splat arguments, anywhere (1.9+)
 
-!SLIDE
+	# def foo(*args); p args; end
+	# foo(1, 2, 3, 4)
+	[1, 2, 3, 4]
+	
+	# def bar(first, *args); p first; p args; end
+	# bar(1, 2, 3, 4)
+	1
+	[2, 3, 4]
+	
+	# def baz(first, *args, last); p first; p args; p last; end
+	# baz(1, 2, 3, 4)
+	1
+	[2, 3]
+	4
+
+!SLIDE incremental small
 
 ## destructuring arrays
 
-!SLIDE
+	@@@ ruby
+	def touch_down
+	  yield [3, 7]
+	  puts "touchdown!"
+	end
+	
+	touch_down do |(first_down, second_down)|
+	  puts "#{first_down} yards on the run"
+	  puts "#{second_down} yards passed"
+	end
 
-## pulling elements out of arrays
+- `3 yards on the run`
+- `7 yards passed`
+- `touchdown!`
 
-!SLIDE
+!SLIDE commandline incremental
 
 ## `Enumerable#any? / #all?`
 
-!SLIDE
+	# [false, false, true].any?
+	true
+	
+	# [false, false, nil].any?
+	false
+	
+	# [true, true, true].all?
+	true
+	
+	# [true, true, false].all?
+	false
 
-## `Hash#fetch`
-
-!SLIDE
+!SLIDE commandline incremental small
 
 ## `Hash#new` with a block
 
-!SLIDE
+	# smash = Hash.new { |hash, key| hash[key] = "a #{key} just got SMASHED!" }
+	{}
+	
+	# smash[:plum] = "cannot smash."
+	{:plum=>"cannot smash."}
+	
+	# smash[:watermelon]
+	{:plum=>"cannot smash.", :watermelon=>"a watermelon just got SMASHED!"}
+
+!SLIDE commandline incremental
 
 ## `Hash::[]`
 
-!SLIDE
+	# Hash[:apples, 3, :bananas, 2]
+	{:apples=>3, :bananas=>2}
+	
+	# Hash[[:apples, 3, :bananas, 2] * 300_000]
+	SystemStackError: stack level too deep
 
-## `Array#sort_by`
+[Ruby bug](http://redmine.ruby-lang.org/issues/5719) warning!
 
-!SLIDE
-
-## `String#present?` (Rails only)
-
-!SLIDE
+!SLIDE commandline incremental
 
 ## `j` and `jj` (1.9+)
 
-    require 'json'
-    h = {a:1,b:2}
-    j(h); jj(h)
-
+	# require 'json'
+	# h = {a: 1, b:2}
+	{:a=>1, :b=>2}
+	
+	# j(h)
+	{"a":1,"b":2}
+	
+	# jj(h)
+	{
+	  "a": 1,
+	  "b": 2
+	}

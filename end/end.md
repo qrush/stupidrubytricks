@@ -1,4 +1,4 @@
-!SLIDE
+!SLIDE small
 
 # thanks!
 
