@@ -92,11 +92,11 @@
 ## string interpolation, also normal
 
 	@@@ ruby
-	@a = 4
-	b = "5#{@a}6"
+	@a = 5
+	b = "4#{@a}6"
 	p b
 
-- `123`
+- `456`
 
 !SLIDE incremental small
 
