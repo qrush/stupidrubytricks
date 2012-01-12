@@ -8,7 +8,7 @@
 	$ echo "class Foo; end" | ruby -c
 	  Syntax OK
 
-!SLIDE   small
+!SLIDE   smaller
 
 ## `ruby -w`: Indent checking (1.9+)
 
@@ -25,7 +25,7 @@
 	bad.rb:6: warning: mismatched indentations at 'end' with 'def' at 2
 	bad.rb:6: syntax error, unexpected $end, expecting keyword_end
 
-!SLIDE  
+!SLIDE  smaller
 
 ## `ruby -p, -e, -i`
 
@@ -166,7 +166,7 @@
 	$ ruby -ryaml data.rb bar
 	"LOL!"
 
-!SLIDE  
+!SLIDE  smaller
 
 ## `redo`
 
@@ -191,7 +191,7 @@
 	# rest
 	[2, 3]
 
-!SLIDE  
+!SLIDE  smaller
 
 ## splat arguments, anywhere (1.9+)
 
@@ -229,7 +229,7 @@
 - `7 yards passed`
 - `touchdown!`
 
-!SLIDE  
+!SLIDE  smaller
 
 ## `Enumerable#any? / #all?`
 
@@ -249,16 +249,18 @@
 
 ## `Hash#new` with a block
 
-	# smash = Hash.new { |hash, key| hash[key] = "a #{key} just got SMASHED!" }
+	# smash = Hash.new { |hash, key|
+	    hash[key] = "a #{key} just got SMASHED!" }
 	{}
 	
 	# smash[:plum] = "cannot smash."
 	{:plum=>"cannot smash."}
 	
 	# smash[:watermelon]
-	{:plum=>"cannot smash.", :watermelon=>"a watermelon just got SMASHED!"}
+	{:plum=>"cannot smash.",
+	  :watermelon=>"a watermelon just got SMASHED!"}
 
-!SLIDE  
+!SLIDE  smaller
 
 ## `Hash::[]`
 
