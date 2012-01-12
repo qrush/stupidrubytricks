@@ -81,45 +81,45 @@
 <h2>and some useful ones</h2>
 
 <h3>Nick Quaranto <a href="http://twitter.com/qrush">@qrush</a></h3></div>
-</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="tricks/tricks/1">
+</div><div class="slide" data-transition="none"><div class="content" ref="tricks/tricks/1">
 <h2><code>ruby -c</code>: Syntax checking</h2>
 
-<pre><code><code class="command">$ echo "class Foo" | ruby -c</code>
-<code class="result">  -:1: syntax error, unexpected $end
+<pre><code>$ echo "class Foo" | ruby -c
+  -:1: syntax error, unexpected $end
 
-</code><code class="command">$ echo "class Foo; end" | ruby -c</code>
-<code class="result">  Syntax OK
-</code></code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content commandline incremental small" ref="tricks/tricks/2">
+$ echo "class Foo; end" | ruby -c
+  Syntax OK
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="tricks/tricks/2">
 <h2><code>ruby -w</code>: Indent checking (1.9+)</h2>
 
-<pre><code><code class="command">$ cat bad.rb</code>
-<code class="result">class Foo
+<pre><code>$ cat bad.rb
+class Foo
   def bar
     if false
       puts "LOL"
   end
 end
 
-</code><code class="command">$ ruby -w bad.rb</code>
-<code class="result">bad.rb:5: warning: mismatched indentations at 'end' with 'if' at 3
+$ ruby -w bad.rb
+bad.rb:5: warning: mismatched indentations at 'end' with 'if' at 3
 bad.rb:6: warning: mismatched indentations at 'end' with 'def' at 2
 bad.rb:6: syntax error, unexpected $end, expecting keyword_end
-</code></code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="tricks/tricks/3">
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="tricks/tricks/3">
 <h2><code>ruby -p, -e, -i</code></h2>
 
-<pre><code><code class="command">$ echo matz | ruby -p -e '$_.tr! "a-z", "A-Z"'</code>
-<code class="result">MATZ
-</code><code class="command">$ echo matz &gt; /tmp/junk</code>
-<code class="command">$ cat /tmp/junk</code>
-<code class="result">matz
-</code><code class="command">$ ruby -p -i.bak -e '$_.upcase!' /tmp/junk</code>
-<code class="command">$ cat /tmp/junk</code>
-<code class="result">MATZ
-</code><code class="command">$ cat /tmp/junk.bak</code>
-<code class="result">matz
-</code></code></pre></div>
+<pre><code>$ echo matz | ruby -p -e '$_.tr! "a-z", "A-Z"'
+MATZ
+$ echo matz &gt; /tmp/junk
+$ cat /tmp/junk
+matz
+$ ruby -p -i.bak -e '$_.upcase!' /tmp/junk
+$ cat /tmp/junk
+MATZ
+$ cat /tmp/junk.bak
+matz
+</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="tricks/tricks/4">
 <h2>underscores in numbers</h2>
 
@@ -130,28 +130,28 @@ end
 (1..300_000_000).each do |n|
   puts "LMAO!"
 end</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="tricks/tricks/5">
+</div><div class="slide" data-transition="none"><div class="content" ref="tricks/tricks/5">
 <h2>underscore in <code>irb</code></h2>
 
-<pre><code><code class="command"># %w(a b c).map(&amp;:succ)</code>
-<code class="result">["b", "c", "d"]
+<pre><code># %w(a b c).map(&amp;:succ)
+["b", "c", "d"]
 
-</code><code class="command"># _</code>
-<code class="result">["b", "c", "d"]
+# _
+["b", "c", "d"]
 
-</code><code class="command"># letters = _</code>
-<code class="result">["b", "c", "d"]
-</code></code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="tricks/tricks/6">
+# letters = _
+["b", "c", "d"]
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="tricks/tricks/6">
 <h2>string concatenation</h2>
 
-<pre><code><code class="command"># "ab" + "cd"</code>
-<code class="result">"abcd"
+<pre><code># "ab" + "cd"
+"abcd"
 
-</code><code class="command"># "ab" "cd"</code>
-<code class="result">"abcd"
-</code></code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content incremental" ref="tricks/tricks/7">
+# "ab" "cd"
+"abcd"
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="tricks/tricks/7">
 <h2>string interpolation, normal</h2>
 
 <pre class="sh_ruby"><code>a = 2
@@ -162,7 +162,7 @@ p b</code></pre>
 <li><code>123</code></li>
 </ul>
 </div>
-</div><div class="slide" data-transition="none"><div class="content incremental" ref="tricks/tricks/8">
+</div><div class="slide" data-transition="none"><div class="content" ref="tricks/tricks/8">
 <h2>string interpolation, also normal</h2>
 
 <pre class="sh_ruby"><code>@a = 5
@@ -173,7 +173,7 @@ p b</code></pre>
 <li><code>456</code></li>
 </ul>
 </div>
-</div><div class="slide" data-transition="none"><div class="content incremental small" ref="tricks/tricks/9">
+</div><div class="slide" data-transition="none"><div class="content small" ref="tricks/tricks/9">
 <h2>string interpolation, WTF?</h2>
 
 <pre class="sh_ruby"><code>@a = 8
@@ -190,7 +190,7 @@ p d</code></pre>
 <li><code>7</code></li>
 </ul>
 </div>
-</div><div class="slide" data-transition="none"><div class="content incremental" ref="tricks/tricks/10">
+</div><div class="slide" data-transition="none"><div class="content" ref="tricks/tricks/10">
 <h2>interpolate into symbols</h2>
 
 <pre class="sh_ruby"><code>p :this_is_a_symbol.object_id
@@ -203,7 +203,7 @@ p :"this_is_a_#{klass}".object_id</code></pre>
 <li><code>333788</code></li>
 </ul>
 </div>
-</div><div class="slide" data-transition="none"><div class="content incremental" ref="tricks/tricks/11">
+</div><div class="slide" data-transition="none"><div class="content" ref="tricks/tricks/11">
 <h2>string delimiters</h2>
 
 <pre class="sh_ruby"><code>"String!"
@@ -212,42 +212,42 @@ p :"this_is_a_#{klass}".object_id</code></pre>
 %|String!|
 %`String!`
 %;String!;</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content commandline" ref="tricks/tricks/12">
+</div><div class="slide" data-transition="none"><div class="content" ref="tricks/tricks/12">
 <h2><code>String#*</code></h2>
 
-<pre><code><code class="command"># "*" * 80</code>
-<code class="result">********************************************************************************
-</code></code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="tricks/tricks/13">
+<pre><code># "*" * 80
+********************************************************************************
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="tricks/tricks/13">
 <h2><code>DATA</code> and <code>__END__</code></h2>
 
-<pre><code><code class="command">$ cat data.rb</code>
-<code class="result">p YAML.load(DATA.read)[ARGV.first]
+<pre><code>$ cat data.rb
+p YAML.load(DATA.read)[ARGV.first]
 __END__
 foo: "Bar"
 baz: "LOL!"
 
-</code><code class="command">$ ruby -ryaml data.rb</code>
-<code class="result">nil
+$ ruby -ryaml data.rb
+nil
 
-</code><code class="command">$ ruby -ryaml data.rb foo</code>
-<code class="result">"Bar"
+$ ruby -ryaml data.rb foo
+"Bar"
 
-</code><code class="command">$ ruby -ryaml data.rb bar</code>
-<code class="result">"LOL!"
-</code></code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="tricks/tricks/14">
+$ ruby -ryaml data.rb bar
+"LOL!"
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="tricks/tricks/14">
 <h2><code>redo</code></h2>
 
-<pre><code><code class="command"># s = ''</code>
-<code class="result">""
+<pre><code># s = ''
+""
 
-</code><code class="command"># 1.upto(5) { |i| s &lt;&lt; i.to_s; redo if s.size &lt; 3 }</code>
-<code class="result">1
+# 1.upto(5) { |i| s &lt;&lt; i.to_s; redo if s.size &lt; 3 }
+1
 
-</code><code class="command"># s</code>
-<code class="result">"1112345"
-</code></code></pre></div>
+# s
+"1112345"
+</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="tricks/tricks/15">
 <h2>pulling elements out of arrays</h2>
 
@@ -259,25 +259,25 @@ baz: "LOL!"
 # rest
 [2, 3]
 </code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="tricks/tricks/16">
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="tricks/tricks/16">
 <h2>splat arguments, anywhere (1.9+)</h2>
 
-<pre><code><code class="command"># def foo(*args); p args; end</code>
-<code class="command"># foo(1, 2, 3, 4)</code>
-<code class="result">[1, 2, 3, 4]
+<pre><code># def foo(*args); p args; end
+# foo(1, 2, 3, 4)
+[1, 2, 3, 4]
 
-</code><code class="command"># def bar(first, *args); p first; p args; end</code>
-<code class="command"># bar(1, 2, 3, 4)</code>
-<code class="result">1
+# def bar(first, *args); p first; p args; end
+# bar(1, 2, 3, 4)
+1
 [2, 3, 4]
 
-</code><code class="command"># def baz(first, *args, last); p first; p args; p last; end</code>
-<code class="command"># baz(1, 2, 3, 4)</code>
-<code class="result">1
+# def baz(first, *args, last); p first; p args; p last; end
+# baz(1, 2, 3, 4)
+1
 [2, 3]
 4
-</code></code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content incremental small" ref="tricks/tricks/17">
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="tricks/tricks/17">
 <h2>destructuring arrays</h2>
 
 <pre class="sh_ruby"><code>def touch_down
@@ -296,60 +296,62 @@ end</code></pre>
 <li><code>touchdown!</code></li>
 </ul>
 </div>
-</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="tricks/tricks/18">
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="tricks/tricks/18">
 <h2><code>Enumerable#any? / #all?</code></h2>
 
-<pre><code><code class="command"># [false, false, true].any?</code>
-<code class="result">true
+<pre><code># [false, false, true].any?
+true
 
-</code><code class="command"># [false, false, nil].any?</code>
-<code class="result">false
+# [false, false, nil].any?
+false
 
-</code><code class="command"># [true, true, true].all?</code>
-<code class="result">true
+# [true, true, true].all?
+true
 
-</code><code class="command"># [true, true, false].all?</code>
-<code class="result">false
-</code></code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content commandline incremental small" ref="tricks/tricks/19">
+# [true, true, false].all?
+false
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="tricks/tricks/19">
 <h2><code>Hash#new</code> with a block</h2>
 
-<pre><code><code class="command"># smash = Hash.new { |hash, key| hash[key] = "a #{key} just got SMASHED!" }</code>
-<code class="result">{}
+<pre><code># smash = Hash.new { |hash, key|
+    hash[key] = "a #{key} just got SMASHED!" }
+{}
 
-</code><code class="command"># smash[:plum] = "cannot smash."</code>
-<code class="result">{:plum=&gt;"cannot smash."}
+# smash[:plum] = "cannot smash."
+{:plum=&gt;"cannot smash."}
 
-</code><code class="command"># smash[:watermelon]</code>
-<code class="result">{:plum=&gt;"cannot smash.", :watermelon=&gt;"a watermelon just got SMASHED!"}
-</code></code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="tricks/tricks/20">
+# smash[:watermelon]
+{:plum=&gt;"cannot smash.",
+  :watermelon=&gt;"a watermelon just got SMASHED!"}
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="tricks/tricks/20">
 <h2><code>Hash::[]</code></h2>
 
-<pre><code><code class="command"># Hash[:apples, 3, :bananas, 2]</code>
-<code class="result">{:apples=&gt;3, :bananas=&gt;2}
+<pre><code># Hash[:apples, 3, :bananas, 2]
+{:apples=&gt;3, :bananas=&gt;2}
 
-</code><code class="command"># Hash[[:apples, 3, :bananas, 2] * 300_000]</code>
-<code class="result">SystemStackError: stack level too deep
-</code></code></pre>
+# Hash[[:apples, 3, :bananas, 2] * 300_000]
+SystemStackError: stack level too deep
+</code></pre>
 
 <p><a href="http://redmine.ruby-lang.org/issues/5719">Ruby bug</a> warning!</p></div>
-</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="tricks/tricks/21">
+</div><div class="slide" data-transition="none"><div class="content" ref="tricks/tricks/21">
 <h2><code>j</code> and <code>jj</code> (1.9+)</h2>
 
-<pre><code><code class="command"># require 'json'</code>
-<code class="command"># h = {a: 1, b:2}</code>
-<code class="result">{:a=&gt;1, :b=&gt;2}
+<pre><code># require 'json'
+# h = {a: 1, b:2}
+{:a=&gt;1, :b=&gt;2}
 
-</code><code class="command"># j(h)</code>
-<code class="result">{"a":1,"b":2}
+# j(h)
+{"a":1,"b":2}
 
-</code><code class="command"># jj(h)</code>
-<code class="result">{
+# jj(h)
+{
   "a": 1,
   "b": 2
 }
-</code></code></pre></div>
+</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content small" ref="end/end">
 <h1>thanks!</h1>
 
