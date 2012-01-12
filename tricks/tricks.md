@@ -1,4 +1,4 @@
-!SLIDE commandline incremental
+!SLIDE  
 
 ## `ruby -c`: Syntax checking
 
@@ -8,7 +8,7 @@
 	$ echo "class Foo; end" | ruby -c
 	  Syntax OK
 
-!SLIDE commandline incremental small
+!SLIDE   small
 
 ## `ruby -w`: Indent checking (1.9+)
 
@@ -25,7 +25,7 @@
 	bad.rb:6: warning: mismatched indentations at 'end' with 'def' at 2
 	bad.rb:6: syntax error, unexpected $end, expecting keyword_end
 
-!SLIDE commandline incremental
+!SLIDE  
 
 ## `ruby -p, -e, -i`
 
@@ -53,7 +53,7 @@
 	  puts "LMAO!"
 	end
 
-!SLIDE commandline incremental
+!SLIDE  
 
 ## underscore in `irb`
 
@@ -66,7 +66,7 @@
 	# letters = _
 	["b", "c", "d"]
 
-!SLIDE commandline incremental
+!SLIDE  
 
 ## string concatenation
 
@@ -76,7 +76,7 @@
 	# "ab" "cd"
 	"abcd"
 
-!SLIDE incremental
+!SLIDE 
 
 ## string interpolation, normal
 
@@ -87,7 +87,7 @@
 
 - `123`
 
-!SLIDE incremental
+!SLIDE 
 
 ## string interpolation, also normal
 
@@ -98,7 +98,7 @@
 
 - `456`
 
-!SLIDE incremental small
+!SLIDE  small
 
 ## string interpolation, WTF?
 
@@ -115,7 +115,7 @@
 - `78`
 - `7`
 
-!SLIDE incremental
+!SLIDE 
 
 ## interpolate into symbols
 
@@ -128,7 +128,7 @@
 - `333788`
 - `333788`
 
-!SLIDE incremental
+!SLIDE 
 
 ## string delimiters
 
@@ -140,14 +140,14 @@
 	%`String!`
 	%;String!;
 
-!SLIDE commandline
+!SLIDE 
 
 ## `String#*`
 
 	# "*" * 80
 	********************************************************************************
 
-!SLIDE commandline incremental
+!SLIDE  
 
 ## `DATA` and `__END__`
 
@@ -166,7 +166,7 @@
 	$ ruby -ryaml data.rb bar
 	"LOL!"
 
-!SLIDE commandline incremental
+!SLIDE  
 
 ## `redo`
 
@@ -191,7 +191,7 @@
 	# rest
 	[2, 3]
 
-!SLIDE commandline incremental
+!SLIDE  
 
 ## splat arguments, anywhere (1.9+)
 
@@ -210,7 +210,7 @@
 	[2, 3]
 	4
 
-!SLIDE incremental small
+!SLIDE  small
 
 ## destructuring arrays
 
@@ -229,7 +229,7 @@
 - `7 yards passed`
 - `touchdown!`
 
-!SLIDE commandline incremental
+!SLIDE  
 
 ## `Enumerable#any? / #all?`
 
@@ -245,7 +245,7 @@
 	# [true, true, false].all?
 	false
 
-!SLIDE commandline incremental small
+!SLIDE   small
 
 ## `Hash#new` with a block
 
@@ -258,7 +258,7 @@
 	# smash[:watermelon]
 	{:plum=>"cannot smash.", :watermelon=>"a watermelon just got SMASHED!"}
 
-!SLIDE commandline incremental
+!SLIDE  
 
 ## `Hash::[]`
 
@@ -270,7 +270,7 @@
 
 [Ruby bug](http://redmine.ruby-lang.org/issues/5719) warning!
 
-!SLIDE commandline incremental
+!SLIDE  
 
 ## `j` and `jj` (1.9+)
 
